@@ -1,9 +1,12 @@
 import React from 'react';
+import SideBar from './SideBar';
 
 function Side() {
-  return <div className='Side'>
-    <h2>Side</h2>
-  </div>;
+  return (
+    <div className='Side'>
+      <SideBar />
+    </div>
+  );
 }
 
 export default Side;
