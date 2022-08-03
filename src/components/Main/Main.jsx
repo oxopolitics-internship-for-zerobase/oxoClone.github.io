@@ -1,6 +1,6 @@
 import React from 'react';
 import Community from './Community';
-import Side from '../Side';
+import Side from '../Side/Side';
 
 function Main() {
   return (
