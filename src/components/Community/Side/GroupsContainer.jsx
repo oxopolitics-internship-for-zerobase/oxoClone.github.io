@@ -23,8 +23,8 @@ const GroupsContainer = (props) => {
   return (
     <Container>
       <GroupsTitle>
-        <h2 style={{ fontSize: '18px', fontWeight: 700 }}>그룹</h2>
-        <img src='./src/assets/arrow.jpg'></img>
+        <h2>그룹</h2>
+        <div>{'>'}</div>
       </GroupsTitle>
       <ListContainer>
         {groupsArray.map((elem, idx) => (
@@ -111,6 +111,15 @@ const GroupsTitle = styled.a`
   justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
+
+  h2 {
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+  div {
+    font-size: 18px !important;
+    font-weight: 500;
+  }
 `;
 
 const HrLine = styled.div`
