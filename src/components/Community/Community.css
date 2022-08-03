@@ -1,4 +1,4 @@
-.Main {
+.community {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,12 +9,12 @@
   margin: 0 auto;
 }
 
-.Community {
+.post {
   height: 100%;
   width: 709px;
 }
 
-.Side {
+.side {
   height: 100%;
   width: 290px;
 }

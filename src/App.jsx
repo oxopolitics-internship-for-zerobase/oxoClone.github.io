@@ -1,12 +1,12 @@
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import Community from './components/Community/Community';
 import './App.css';
 
 function App() {
   return (
     <>
-      <Header className="Header" />
-      <Main className="Main" />
+      <Header className="header" />
+      <Community className="community" />
     </>
   );
 }
