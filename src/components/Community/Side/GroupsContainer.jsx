@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import Group from './Group';
+import group from './data/group.json';
 
 const GroupsContainer = (props) => {
-  let groupsArray = new Array(parseInt(props.length) || 20);
-
   //! mock up
-  groupsArray = makeMockData(groupsArray);
+  // groupsArray = makeMockData(groupsArray);
+
+  //Fetching Data
+  const groupsArray = fetchJsonToArray(group);
+  //! Test code
+  // console.log(groupsArray);
 
   //sorting
-  groupsArray.sort((x, y) => y.creationDate - x.creationDate);
+  groupsArray.sort(
+    (x, y) => y.lastGroupPostCreatedAt - x.lastGroupPostCreatedAt
+  );
 
   //! Test code
   // console.log(groupsArray);
@@ -21,41 +27,55 @@ const GroupsContainer = (props) => {
         <img src='./src/assets/arrow.jpg'></img>
       </GroupsTitle>
       <ListContainer>
-        {groupsArray.map((elem, idx) => {
-          return (
-            <>
-              <Group
-                title={elem.title}
-                describtion={elem.describtion}
-                imgLink={elem.imgLink}
-                followers={elem.followers}
-                creationDate={elem.creationDate}
-                key={elem.title}
-              />
-              {idx != props.length - 1 ? <HrLine /> : null}
-            </>
-          );
-        })}
+        {groupsArray.map((elem, idx) => (
+          <li key={elem.id}>
+            <Group
+              key={elem.id}
+              title={elem.title}
+              description={elem.description}
+              imgLink={elem.photos}
+              followers={randomFollowers()}
+              lastGroupPostCreatedAt={elem.lastGroupPostCreatedAt}
+            />
+            {idx != props.length - 1 ? <HrLine /> : null}
+          </li>
+        ))}
       </ListContainer>
     </Container>
   );
 };
 
-const makeMockData = (array) => {
-  const mockData = [];
-  for (let i = 0; i < array.length; i++) {
-    mockData[i] = {
-      title: '그룹 이름 ' + i,
-      describtion:
-        '그룹에 대한 설명이 들어 있습니다. 사실 이건 꽤 긴 글입니다.',
-      imgLink: './src/assets/mock.jpg',
-      followers: Math.round(Math.random() * 200),
-      creationDate:
-        new Date() - Math.round(Math.random() * 60 * 24 * 11) * 60000,
-    };
+//# JSON
+function fetchJsonToArray(rawJson) {
+  const array = [];
+  const jsonData = rawJson.data;
+  for (const key in jsonData) {
+    jsonData[key] = { ...jsonData[key], id: key };
+    array.push(jsonData[key]);
   }
-  return mockData;
-};
+
+  return array;
+}
+
+function randomFollowers() {
+  return Math.round(Math.random() * 200);
+}
+
+// const makeMockData = (array) => {
+//   const mockData = [];
+//   for (let i = 0; i < array.length; i++) {
+//     mockData[i] = {
+//       title: '그룹 이름 ' + i,
+//       describtion:
+//         '그룹에 대한 설명이 들어 있습니다. 사실 이건 꽤 긴 글입니다.',
+//       imgLink: './src/assets/mock.jpg',
+//       followers: Math.round(Math.random() * 200),
+//       creationDate:
+//         new Date() - Math.round(Math.random() * 60 * 24 * 11) * 60000,
+//     };
+//   }
+//   return mockData;
+// };
 
 export default GroupsContainer;
 
@@ -76,6 +96,9 @@ const ListContainer = styled.ul`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  li {
+    list-style: none;
+  }
 `;
 
 const GroupsTitle = styled.a`

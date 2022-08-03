@@ -1,25 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-// import GroupsContainer from './Group.style';
 
-const Group = ({ title, describtion, creationDate, followers, imgLink }) => {
-  const groupDescribtion =
-    describtion.length > 14 ? describtion.slice(0, 13) + '...' : describtion;
-  const dayString = getDateString(creationDate);
+const Group = ({
+  title,
+  description,
+  lastGroupPostCreatedAt,
+  followers,
+  imgLink,
+}) => {
+  const groupdescription =
+    description.length > 14 ? description.slice(0, 13) + '...' : description;
+  const dayString = getDateString(lastGroupPostCreatedAt);
 
   return (
-    <GroupsContainer>
-      <img className='GroupImg' src={imgLink} alt='그룹 이미지' />
-      <GroupInfoAria>
-        <GroupTitle>{title}</GroupTitle>
-        <GroupDescribtionAria>
-          <GroupDescribtion>{groupDescribtion}</GroupDescribtion>
-          <GroupEtcInfo>
+    <GroupContainer imgUrl={imgLink}>
+      <div className='groupImg' />
+      <div className='groupInfoAria'>
+        <div className='groupTitle'>{title}</div>
+        <div className='groupDescriptionAria'>
+          <div className='groupDescription'>{groupdescription}</div>
+          <div className='groupEtcInfo'>
             팔로워 {followers} · {dayString}
-          </GroupEtcInfo>
-        </GroupDescribtionAria>
-      </GroupInfoAria>
-    </GroupsContainer>
+          </div>
+        </div>
+      </div>
+    </GroupContainer>
   );
 };
 
@@ -46,33 +51,11 @@ const getDateString = (date) => {
       thisDate.getMonth() + 1
     }.${thisDate.getDate()}`;
   }
-  
 };
 
 //* Styled Components
-// const GroupsContainer = styled.div`
-//   display: flex;
-//   -webkit-box-pack: start;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-//   width: 100%;
-//   height: 70px;
-//   cursor: pointer;
-// `;
 
-//! 배경이미지로 처리 고려
-const GroupImg = styled.img`
-  width: 90px;
-  height: 70px;
-  background-color: rgb(97, 97, 97);
-  border-radius: 8px;
-  background-position-x: center;
-  background-position-y: center;
-  -webkit-background-size: cover;
-  background-size: cover;
-`;
-
-const GroupsContainer = styled.li`
+const GroupContainer = styled.div`
   display: flex;
   -webkit-box-pack: start;
   justify-content: flex-start;
@@ -81,55 +64,57 @@ const GroupsContainer = styled.li`
   height: 70px;
   cursor: pointer;
 
-  img {
+  .groupImg {
     width: 90px;
     height: 70px;
     background-color: rgb(97, 97, 97);
     border-radius: 8px;
+    background-image: url(${(props) => props.imgUrl});
     background-position-x: center;
     background-position-y: center;
     -webkit-background-size: cover;
     background-size: cover;
   }
-`;
 
-const GroupInfoAria = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  height: 68px;
-  margin-left: 10px;
-  color: rgb(47, 47, 47);
-`;
+  .groupInfoAria {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 68px;
+    margin-left: 10px;
+    color: rgb(47, 47, 47);
+  }
 
-const GroupTitle = styled.h3`
-  margin: 0 0 12px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(47, 47, 47);
-`;
+  .groupTitle {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(47, 47, 47);
+  }
 
-const GroupDescribtionAria = styled.div`
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  justify-content: flex-end;
-  align-items: flex-start;
-  font-size: 12px;
-  font-weight: 400;
-`;
+  .groupDescriptionAria {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 12px;
+    font-weight: 400;
+  }
 
-const GroupDescribtion = styled.span`
-  height: 13px;
-  margin-bottom: 3px;
-  color: rgb(47, 47, 47);
-`;
-const GroupEtcInfo = styled.span`
-  height: 13px;
-  font-weight: 600;
-  color: rgb(176, 176, 176);
+  .groupDescription {
+    height: 13px;
+    margin-bottom: 3px;
+    color: rgb(47, 47, 47);
+  }
+
+  .groupEtcInfo {
+    height: 13px;
+    font-weight: 600;
+    color: rgb(176, 176, 176);
+  }
 `;
 
 export default Group;
