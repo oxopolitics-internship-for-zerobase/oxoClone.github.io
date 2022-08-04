@@ -14,7 +14,7 @@ const Header = styled.span`
   font-size: 14px;
   color: #616161;
   margin-right: 2px;
-  font-weight: 400;
+  font-weight: 300;
 
   cursor: pointer;
 `;

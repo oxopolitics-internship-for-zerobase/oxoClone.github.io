@@ -17,6 +17,7 @@ export default Comment;
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 12px;
   
   .tribeImg {
@@ -37,6 +38,7 @@ const Container = styled.div`
   }
   .commentText {
     font-size: 14px;
+    font-weight: 300;
     padding: 2px 10px;
     color: rgb(47, 47, 47);
     overflow: hidden;
