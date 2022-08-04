@@ -32,7 +32,7 @@ const getDateString = (date) => {
   const now = new Date();
   const HOUR_MILLI_SEC = 3600 * 1000;
 
-  const time = now - date;
+  let time = now - date;
 
   time /= HOUR_MILLI_SEC;
   if (time < 1) {
