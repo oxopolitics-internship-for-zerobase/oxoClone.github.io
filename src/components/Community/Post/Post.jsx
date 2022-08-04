@@ -15,7 +15,11 @@ function Post() {
         <Wrapper key={el.id} className='post'>
           <PostHeader
             userModifier={el.createdByModifier}
-            userName={el.createdBy}
+            date={
+              el.featuredOnNewsTimelineAt
+                ? el.featuredOnNewsTimelineAt
+                : el.featuredOnCommunityTimelineAt
+            }
             view={el.view}
             tribeId={el.createdByTribeId}
           />

@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 // 프로필 사진
-import dino from './data/tribes/dino_NORMAL.png';
-import elephant from './data/tribes/elephant_NORMAL.png';
-import hippo from './data/tribes/hippo_NORMAL.png';
-import lion from './data/tribes/lion_NORMAL.png';
-import tiger from './data/tribes/tiger_NORMAL.png';
+import dino from './data/tribes/dino_portrait.png';
+import elephant from './data/tribes/elephant_portrait.png';
+import hippo from './data/tribes/hippo_portrait.png';
+import lion from './data/tribes/lion_portrait.png';
+import tiger from './data/tribes/tiger_portrait.png';
+import oxo from './data/tribes/oxo_portrait.png';
 // 아이콘
 import ButtonKebab from '../icons/ButtonKebab.jsx';
 import IconChat from '../icons/buttonChat.png';
 
-const PostHeader = ({ userModifier = '', userName, date, view, tribeId }) => {
+const PostHeader = ({ userModifier = '', date, view, tribeId }) => {
   const profileImg = getProfileImg(tribeId)[0];
   const profileImgName = getProfileImg(tribeId)[1];
-
+  const uploadedTime = getDateString(date);
+  
   return (
     <PostWrapper>
       <div className='wrapper'>
@@ -21,9 +23,9 @@ const PostHeader = ({ userModifier = '', userName, date, view, tribeId }) => {
           <img src={profileImg} alt={profileImgName} />
         </div>
         <div className='info'>
-          <div>{userName}</div>
+          <div>{`${userModifier} ${profileImgName}`}</div>
           <div className='wrapper'>
-            <div>{date}시간 전</div>
+            <div>{uploadedTime}</div>
             <div>·</div>
             <div>조회 {view}</div>
           </div>
@@ -77,23 +79,50 @@ const getProfileImg = (id) => {
       break;
     // 옥소
     default:
+      img.push(oxo);
+      img.push('옥소');
       break;
   }
   return img;
+};
+
+// 글 업로드 시간 string 반환
+const getDateString = (date) => {
+  const now = new Date();
+  const HOUR_MILLI_SEC = 3600 * 1000;
+  const DAY_MILLI_SEC = 24 * HOUR_MILLI_SEC;
+
+  const time = now - date;
+
+  if (time / HOUR_MILLI_SEC < 1) {
+    return `${Math.round((time / HOUR_MILLI_SEC) * 60)}분 전`;
+  } else if (time / DAY_MILLI_SEC < 1) {
+    return `${Math.round(time / HOUR_MILLI_SEC)}시간 전`;
+  } else if (time / DAY_MILLI_SEC < 7) {
+    return `${Math.round(time / DAY_MILLI_SEC)}일 전`;
+  } else if (time / DAY_MILLI_SEC < 10) {
+    return '1주 전';
+  } else {
+    const thisDate = new Date(date);
+    console.log(thisDate)
+    return `${thisDate.getFullYear()}.${
+      thisDate.getMonth() + 1
+    }.${thisDate.getDate()}`;
+  }
 };
 
 // CSS Component
 const PostWrapper = styled.div`
   .wrapper {
     display: grid;
-    grid-template-columns: 40px 552px 32px 43px;
+    grid-template-columns: 47px 545px 32px 43px;
   }
 
   .profile {
     img {
       position: absolute;
       left: 0%;
-      top: 15%;
+      top: 0%;
       width: 40px;
       height: 40px;
     }
@@ -104,6 +133,17 @@ const PostWrapper = styled.div`
     background-color: #efefef;
 
     overflow: hidden;
+  }
+
+  .info {
+    font-weight: 600;
+    /* line-height: 120%; */
+    color: rgb(47, 47, 47);
+    .wrapper {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgb(176, 176, 176);
+    }
   }
 
   .tokIcon {
