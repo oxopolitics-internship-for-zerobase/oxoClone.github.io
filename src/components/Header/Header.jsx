@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import HeaderLogo from './HeaderLogo';
 import HeaderSearch from './HeaderSearch';
 import BannerTag from './banner/BannerTag';
+import TodayTag from './today/TodayTag';
 
 function Header(props) {
   return (
@@ -14,6 +15,7 @@ function Header(props) {
         <HeaderSearch />
       </Stylehaed>
       <BannerTag />
+      <TodayTag />
     </>
   );
 }
