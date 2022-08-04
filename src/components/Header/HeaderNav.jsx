@@ -23,9 +23,11 @@ const Nav = styled.nav`
     justify-content: center;
     border-radius: 100px;
     width: 58px;
+    height: 40px;
     list-style: none;
     font-weight: 600;
     font-size: 14px;
+    transition: 0.4s;
     cursor: pointer;
     svg {
       border-radius: 0;
@@ -45,17 +47,24 @@ const Nav = styled.nav`
     display: inline-block;
     color: #ffffff;
   }
+  .hover {
+    width: 90px;
+    height: 40px;
+    background-color: rgb(245, 245, 245);
+    transition: all 0.4s ease 0s;
+  }
+  .hover span {
+    display: inline-block;
+    color: #2f2f2f;
+  }
 `;
 
 function HeaderNav({ active, activeChange }) {
-  let color = '#e6e6e6';
-
   const navHandler = (e) => {
     const el = e.target.closest('li');
     const currentSvg = el.querySelector('path');
     const navText = e.target.closest('li').classList.contains('active');
     if (!navText) {
-      // console.log(el.className);
       activeChange(el.className);
       const prevActive = document.querySelector('.active');
       const prevSvg = prevActive.querySelector('path');
@@ -66,17 +75,36 @@ function HeaderNav({ active, activeChange }) {
     }
   };
 
+  const mouseoverHandler = (e) => {
+    if (e.target.tagName === 'UL') return;
+    const el = e.target.closest('li');
+    const elSteate = el.classList.contains('active');
+    if (elSteate) {
+      const currentSvg = el.querySelector('path');
+      currentSvg.setAttribute('fill', '#e6e6e6');
+    }
+    el.classList.add('hover');
+  };
+
+  const mouseOutHandler = (e) => {
+    if (e.target.tagName === 'UL') return;
+    const el = e.target.closest('li');
+    el.classList.remove('hover');
+  };
+
   useEffect(() => {
     const activeList = document.querySelector(`.${active}`);
     const activeSvg = activeList.querySelector('path');
     activeList.classList.add('active');
     activeSvg.setAttribute('fill', '#ffffff');
-    // console.log(activeSvg.getAttribute('fill'));
   }, []);
 
   return (
     <Nav active={active}>
-      <ul onClick={navHandler}>
+      <ul
+        onClick={navHandler}
+        onMouseOver={mouseoverHandler}
+        onMouseOut={mouseOutHandler}>
         <li className='IconHome'>
           <IconHome color={'#e6e6e6'} />
           <span>홈</span>
