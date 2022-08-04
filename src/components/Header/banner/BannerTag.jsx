@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import json from './banner.json';
 
 function BannerTag() {
-  console.log(json);
+  // console.log(json);
   const imgUrl = json.data.imageUrl;
   return (
     <StyleSection backgroundColor={json.data.backgroundColor}>
