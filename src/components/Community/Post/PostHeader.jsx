@@ -1,11 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import dino from './data/tribes/dino_NORMAL.png';
+import elephant from './data/tribes/elephant_NORMAL.png';
+import hippo from './data/tribes/hippo_NORMAL.png';
+import lion from './data/tribes/lion_NORMAL.png';
+import tiger from './data/tribes/tiger_NORMAL.png';
 
-function PostHeader() {
-  const userName = '호랑호랑 호랑이';
-  const date = 3;
-  const view = 108;
+const getProfileImg = (name) => {
+  
+}
 
+const PostHeader =({
+  userName, date = 0, view
+}) => {
+  console.log(userName, date, view)
   return (
     <PostWrapper>
       <div className='wrapper'>
