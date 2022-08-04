@@ -25,6 +25,8 @@ const TextContainer = styled.div`
 const StyleText = styled.p`
   color: ${(props) => props.color || 'black'};
   font-size: 24px;
+  font-weight: 600;
+  line-height: 160%;
 `;
 
 const StyleSection = styled.section`
