@@ -29,7 +29,7 @@ function Post() {
 
           />
           <PostComments postID = {el.id} commentsNum = {el.comments}/>
-          <PostFooter />
+          <PostFooter answers={el.answers} user={el.createdBy} />
         </Wrapper>
       ))}
     </article>
