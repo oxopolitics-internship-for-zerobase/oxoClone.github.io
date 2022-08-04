@@ -14,6 +14,7 @@ const SytledSpan = styled.span`
   }
   .menubar {
     /* width: 100%; */
+    cursor: pointer;
   }
   .oxoLogo {
     margin-left: 20px;
@@ -21,6 +22,7 @@ const SytledSpan = styled.span`
     height: initial;
     max-width: 100%;
     object-fit: contain;
+    cursor: pointer;
   }
 `;
 
