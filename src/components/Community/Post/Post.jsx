@@ -23,7 +23,11 @@ function Post() {
             view={el.view}
             tribeId={el.createdByTribeId}
           />
-          <PostBody />
+          <PostBody
+            title={el.title}
+            metaData={el.topicMetadataV2 ? el.topicMetadataV2 : el.postMetadata}
+
+          />
           <PostComments />
           <PostFooter />
         </Wrapper>
