@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import CreateImg from './CreateImg';
 import IconHome from './icons/IconHome';
 import IconPoldi from './icons/IconPoldi';
+import IconChat from './icons/IconChat';
 
 const Nav = styled.nav`
   display: flex;
@@ -52,11 +52,17 @@ function HeaderNav({ active, activeChange }) {
 
   const navHandler = (e) => {
     const el = e.target.closest('li');
+    const currentSvg = el.querySelector('path');
     const navText = e.target.closest('li').classList.contains('active');
     if (!navText) {
+      // console.log(el.className);
+      activeChange(el.className);
       const prevActive = document.querySelector('.active');
+      const prevSvg = prevActive.querySelector('path');
       prevActive.classList.remove('active');
+      prevSvg.setAttribute('fill', '#e6e6e6');
       el.classList.add('active');
+      currentSvg.setAttribute('fill', '#ffffff');
     }
   };
 
@@ -79,7 +85,7 @@ function HeaderNav({ active, activeChange }) {
           <IconPoldi color={color} /> <span>폴디</span>
         </li>
         <li className='IconChat'>
-          <CreateImg src={'IconChat'} /> <span>톡</span>
+          <IconChat color={color} /> <span>톡</span>
         </li>
         {/* <li className='notice'>
           <CreateImg src={'IconNotification'} /> <span>알림</span>
