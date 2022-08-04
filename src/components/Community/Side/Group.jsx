@@ -31,19 +31,17 @@ const Group = ({
 const getDateString = (date) => {
   const now = new Date();
   const HOUR_MILLI_SEC = 3600 * 1000;
-  const DAY_MILLI_SEC = 24 * HOUR_MILLI_SEC;
 
   const time = now - date;
 
-  //switch 문?
-  //! 계산을 미리 해서 범위만 비교 + return 처리 어디서?
-  if (time / HOUR_MILLI_SEC < 1) {
-    return `${Math.round((time / HOUR_MILLI_SEC) * 60)}분 전`;
-  } else if (time / DAY_MILLI_SEC < 1) {
-    return `${Math.round(time / HOUR_MILLI_SEC)}시간 전`;
-  } else if (time / DAY_MILLI_SEC < 7) {
-    return `${Math.round(time / DAY_MILLI_SEC)}일 전`;
-  } else if (time / DAY_MILLI_SEC < 10) {
+  time /= HOUR_MILLI_SEC;
+  if (time < 1) {
+    return `${Math.round(time * 60)}분 전`;
+  } else if (time < 23.5) {
+    return `${Math.round(time)}시간 전`;
+  } else if (time < 7 * 24 - 0.5) {
+    return `${Math.round(time / 24)}일 전`;
+  } else if (time < 24 * 10) {
     return '1주 전';
   } else {
     const thisDate = new Date(date);
