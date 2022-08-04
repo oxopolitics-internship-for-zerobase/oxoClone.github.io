@@ -3,19 +3,24 @@ import styled from 'styled-components';
 import PostHeader from './PostHeader';
 import timelineJSON from './data/timeline.json';
 
-  const postArray = fetchJsonToArray(timelineJSON);
+const postArray = fetchJsonToArray(timelineJSON);
 
 function Post() {
-  postArray.map((el) => {    
-    return (      
-      <Wrapper key={el.id} className='post'>
-        <PostHeader userName={`${el.createdByModifier} ${el.createdBy}`} view={el.view} />
-        <div className='row2'></div>
-        <div className='row3'></div>
-        <div className='row4'></div>
-      </Wrapper>
-    );
-  });
+  return (
+    <div>
+      {postArray.map((el) => (
+        <Wrapper key={el.id} className='post'>
+          <PostHeader
+            userName={`${el.createdByModifier} ${el.createdBy}`}
+            view={el.view}
+          />
+          <div className='row2'></div>
+          <div className='row3'></div>
+          <div className='row4'></div>
+        </Wrapper>
+      ))}
+    </div>
+  );
 }
 
 export default Post;
