@@ -16,12 +16,12 @@ const HeaderRightContainer = styled.div`
   align-items: center;
   width: 161px;
 
-  a {
+  img {
     width: 16px;
-    min-width: 41px;
+    margin-right: 25px;
   }
-  a > img {
-    max-width: 16px;
+  img:hover {
+    cursor: pointer;
   }
 `;
 
