@@ -7,12 +7,14 @@ const postArray = fetchJsonToArray(timelineJSON);
 
 function Post() {
   return (
-    <div>
+    <div className='Post'>
       {postArray.map((el) => (
         <Wrapper key={el.id} className='post'>
           <PostHeader
-            userName={`${el.createdByModifier} ${el.createdBy}`}
+            userModifier={el.createdByModifier}
+            userName={el.createdBy}
             view={el.view}
+            tribeId={el.createdByTribeId}
           />
           <div className='row2'></div>
           <div className='row3'></div>
