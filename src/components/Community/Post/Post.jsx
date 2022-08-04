@@ -10,7 +10,7 @@ const postArray = fetchJsonToArray(timelineJSON);
 
 function Post() {
   return (
-    <div className='Post'>
+    <article className='Post'>
       {postArray.map((el) => (
         <Wrapper key={el.id} className='post'>
           <PostHeader
@@ -28,7 +28,7 @@ function Post() {
           <PostFooter />
         </Wrapper>
       ))}
-    </div>
+    </article>
   );
 }
 
@@ -47,4 +47,6 @@ function fetchJsonToArray(rawJson) {
 const Wrapper = styled.div`
   border: 1px solid #e6e6e6;
   padding: 20px;
+
+  margin-bottom: 20px;
 `;
