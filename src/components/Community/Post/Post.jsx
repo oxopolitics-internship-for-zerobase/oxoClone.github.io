@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PostHeader from './PostHeader';
 import timelineJSON from './data/timeline.json';
+import PostBody from './PostBody';
+import PostComments from './PostComments';
+import PostFooter from './PostFooter';
 
 const postArray = fetchJsonToArray(timelineJSON);
 
@@ -16,9 +19,9 @@ function Post() {
             view={el.view}
             tribeId={el.createdByTribeId}
           />
-          <div className='row2'></div>
-          <div className='row3'></div>
-          <div className='row4'></div>
+          <PostBody />
+          <PostComments />
+          <PostFooter />
         </Wrapper>
       ))}
     </div>
