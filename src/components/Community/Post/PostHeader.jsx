@@ -18,9 +18,7 @@ const PostHeader = ({ userModifier = '', userName, date, view, tribeId }) => {
     <PostWrapper>
       <div className='wrapper'>
         <div className='profile'>
-          <div className='profileImg'>
-            <img src={profileImg} alt={profileImgName} />
-          </div>
+          <img src={profileImg} alt={profileImgName} />
         </div>
         <div className='info'>
           <div>{userName}</div>
@@ -38,7 +36,7 @@ const PostHeader = ({ userModifier = '', userName, date, view, tribeId }) => {
           </div>
         </div>
         <div className='more'>
-          <div className='moreIcon'></div>
+          <ButtonKebab />
         </div>
       </div>
     </PostWrapper>
@@ -47,6 +45,7 @@ const PostHeader = ({ userModifier = '', userName, date, view, tribeId }) => {
 
 export default PostHeader;
 
+// Profile img 가져오기
 const getProfileImg = (id) => {
   const img = [];
 
@@ -83,10 +82,28 @@ const getProfileImg = (id) => {
   return img;
 };
 
+// CSS Component
 const PostWrapper = styled.div`
   .wrapper {
     display: grid;
     grid-template-columns: 40px 552px 32px 43px;
+  }
+
+  .profile {
+    img {
+      position: absolute;
+      left: 0%;
+      top: 15%;
+      width: 40px;
+      height: 40px;
+    }
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #efefef;
+
+    overflow: hidden;
   }
 
   .tokIcon {
@@ -100,12 +117,13 @@ const PostWrapper = styled.div`
     }
   }
 
-  .moreIcon {
-    width: 40px;
-    height: 40px;
-    background-color: black;
+  .more {
+    width: 43px;
+    height: 32px;
 
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .info .wrapper {
