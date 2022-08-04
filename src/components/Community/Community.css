@@ -10,7 +10,7 @@
 }
 
 .post {
-  height: 100%;
+  height: fit-content;
   width: 709px;
 }
 
