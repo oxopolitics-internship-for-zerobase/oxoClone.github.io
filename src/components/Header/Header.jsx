@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HeaderNav from './HeaderNav';
 import styled from 'styled-components';
 import HeaderLogo from './HeaderLogo';
@@ -7,11 +7,17 @@ import BannerTag from './banner/BannerTag';
 import TodayTag from './today/TodayTag';
 
 function Header(props) {
+  const [navState, setNavState] = useState('IconHome');
+
+  const navHandler = (text) => {
+    setNavState(text);
+  };
+
   return (
     <>
       <Stylehaed className={props.className}>
         <HeaderLogo />
-        <HeaderNav />
+        <HeaderNav activeChange={navHandler} active={navState} />
         <HeaderSearch />
       </Stylehaed>
       <BannerTag />

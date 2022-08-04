@@ -13,7 +13,7 @@ const CommentsArea = ({ postID }) => {
   for (const key in bests) {
     commentsArr.push(comments[bests[key]]);
   }
-  console.log(commentsArr);
+  // console.log(commentsArr);
 
   return (
     <Container>
