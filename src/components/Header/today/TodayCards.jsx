@@ -6,21 +6,18 @@ import buttonChat from '../img/buttonChat.png';
 import oxoLogoimg from '../img/oxopolitics_letter_logo.png';
 
 function TodayCards({ data }) {
-  // console.log(data);
   let dataArr = [];
+
+  //json 데이터 배열에 저장하기
   for (const val in data) {
     dataArr.push(data[val]);
   }
-  // let imgSrc = (data) => {
-  //   return data.photos ? data.photos : '/';
-  // };
+
   return (
     <>
       {dataArr.map((item) => (
         <StyledLi key={item.id} imgurl={item.photos} tmpImg={oxoLogoimg}>
-          <div className='imgContainer'>
-            {/* <img src={imgSrc(item)} alt='임시' /> */}
-          </div>
+          <div className='imgContainer'></div>
           <StyledBox className='box'>
             <p>{item.title}</p>
             <StyledBottom>

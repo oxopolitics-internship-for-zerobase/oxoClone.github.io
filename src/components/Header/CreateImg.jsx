@@ -9,11 +9,7 @@ const StyledImg = styled.img`
 function CreateImg({ src }) {
   const imgsrc = `/src/components/Header/img/${src}.svg`;
 
-  return (
-    <a href='/'>
-      <StyledImg src={imgsrc} alt={`${src} 이미지`} />
-    </a>
-  );
+  return <StyledImg src={imgsrc} alt={`${src}`} />;
 }
 
 export default CreateImg;

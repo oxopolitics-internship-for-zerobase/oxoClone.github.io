@@ -1,4 +1,4 @@
-const SCAFFOLD_BACKGROUND_COLOR = 'black';
+const SCAFFOLD_BACKGROUND_COLOR = '#e6e6e6';
 
 export default function IconHome({
   color = SCAFFOLD_BACKGROUND_COLOR,

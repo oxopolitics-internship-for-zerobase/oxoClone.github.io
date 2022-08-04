@@ -28,7 +28,7 @@ function Post() {
             metaData={el.topicMetadataV2 ? el.topicMetadataV2 : el.postMetadata}
 
           />
-          <PostComments />
+          <PostComments postID = {el.id} commentsNum = {el.comments}/>
           <PostFooter />
         </Wrapper>
       ))}
