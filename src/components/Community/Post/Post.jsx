@@ -24,7 +24,7 @@ function Post() {
             tribeId={el.createdByTribeId}
           />
           <PostBody />
-          <PostComments />
+          <PostComments postID = {el.id} commentsNum = {el.comments}/>
           <PostFooter />
         </Wrapper>
       ))}
