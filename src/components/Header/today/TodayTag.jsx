@@ -27,6 +27,7 @@ function TodayTag() {
             <i className='newNotice' />
           </li>
         </ul>
+        <span>더 보기 &gt;</span>
       </nav>
       <RowFlexUl>
         <TodayCards data={json.data} />
@@ -45,6 +46,9 @@ const StyleTodayarticle = styled.article`
     font-weight: 600;
   }
   nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
     margin-bottom: 30px;
   }
   nav > ul {
@@ -53,11 +57,17 @@ const StyleTodayarticle = styled.article`
     height: 29px;
     gap: 45px;
   }
+  nav > span {
+    color: #616161;
+    font-weight: 600;
+    cursor: pointer;
+  }
   li {
     position: relative;
     list-style: none;
     font-weight: 600;
     color: #b0b0b0;
+    cursor: pointer;
   }
   .active {
     color: #2f2f2f;
