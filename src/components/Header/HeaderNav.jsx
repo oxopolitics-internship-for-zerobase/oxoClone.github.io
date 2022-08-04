@@ -78,14 +78,14 @@ function HeaderNav({ active, activeChange }) {
     <Nav active={active}>
       <ul onClick={navHandler}>
         <li className='IconHome'>
-          <IconHome color={color} />
+          <IconHome color={'#e6e6e6'} />
           <span>홈</span>
         </li>
         <li className='IconPoldi'>
-          <IconPoldi color={color} /> <span>폴디</span>
+          <IconPoldi color={'#e6e6e6'} /> <span>폴디</span>
         </li>
         <li className='IconChat'>
-          <IconChat color={color} /> <span>톡</span>
+          <IconChat color={'#e6e6e6'} /> <span>톡</span>
         </li>
         {/* <li className='notice'>
           <CreateImg src={'IconNotification'} /> <span>알림</span>
