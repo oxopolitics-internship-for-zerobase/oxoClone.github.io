@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 function PostBody({ title, metaData }) {
@@ -36,6 +36,11 @@ export default PostBody;
 
 // https:// 링크 + description
 const getLinkDescription = (string) => {
+  let [text, setText] = useState('');
+  useEffect(() => {
+    getLinkTitle(link).then((res) => setText(res));
+  }, []);
+
   // link 주소
   let link = string.split('\n').filter((el) => el.includes('https://'))[0];
   // link 주소의 id
@@ -47,8 +52,7 @@ const getLinkDescription = (string) => {
   // link 미리보기 img
   let linkImg = `http://img.youtube.com/vi/${linkId}/mqdefault.jpg`;
   // link title
-  let linkTitle =
-    '‘만5세 입학’ 발표 나흘 만에... “국민이 원치 않으면 폐기될 수도”';
+    // '‘만5세 입학’ 발표 나흘 만에... “국민이 원치 않으면 폐기될 수도”';
 
   return (
     <div className='linkDescription'>
@@ -60,7 +64,7 @@ const getLinkDescription = (string) => {
             </div>
             <div className='linkInfo'>
               <header>
-                <p>{linkTitle}</p>
+                <p>{text}</p>
               </header>
               <div>
                 <p className='link'>{link}</p>
