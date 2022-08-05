@@ -17,8 +17,9 @@ const CommentsArea = ({ postID }) => {
 
   return (
     <Container>
-      {commentsArr.map((elem) => (
+      {commentsArr.map((elem, idx) => (
         <Comment
+          key={idx}
           answer={elem.answer}
           comment={elem.comment}
           userTribeId={elem.userTribeId}
