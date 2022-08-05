@@ -12,7 +12,7 @@ function PostFooter({ answers, user }) {
         <OxoWrapper>
           <div className='wrapper'>
             <span className='oxIcons'>
-              <OXIcon />
+              <OXIcon color="#616161" />
             </span>
             <div className='answers'>
               <span className='answersText'>{answers}</span>
