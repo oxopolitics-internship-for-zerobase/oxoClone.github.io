@@ -10,7 +10,12 @@ import OxIconFilled from './OxIconFilled';
 import OxIconLined from './OxIconLined';
 import QuizFinishedIcon from './QuizFinishedIcon';
 
-const Icons = () => {
+const Icons = ({name, color, width, height}) => {
+  switch (name) {
+    case 'ButtonKebab': 
+    <ButtonKebab color={color} />
+    break;
+  }
   return (
     <div>
     ButtonKebab
