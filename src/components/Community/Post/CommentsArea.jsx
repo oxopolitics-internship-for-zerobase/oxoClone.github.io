@@ -8,7 +8,6 @@ const CommentsArea = ({ postID }) => {
   const bests = bestCommentIds.data[postID];
   const comments = commentsJson.data;
   const commentsArr = [];
-  const bestsArr = [];
 
   for (const key in bests) {
     commentsArr.push(comments[bests[key]]);
