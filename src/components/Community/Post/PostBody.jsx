@@ -52,7 +52,6 @@ const getLinkDescription = (string) => {
   // link 미리보기 img
   let linkImg = `http://img.youtube.com/vi/${linkId}/mqdefault.jpg`;
   // link title
-    // '‘만5세 입학’ 발표 나흘 만에... “국민이 원치 않으면 폐기될 수도”';
 
   return (
     <div className='linkDescription'>

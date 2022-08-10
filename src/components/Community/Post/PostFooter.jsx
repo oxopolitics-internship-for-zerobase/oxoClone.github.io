@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import OIcon from './data/OXButtons/MiniOLined';
 import DunnoIcon from './data/OXButtons/MiniDunnoLined';
 import XIcon from './data/OXButtons/MiniXLined';
-import OXIcon from '../icons/OxIconLined';
+import OXIcon from './icons/OxIconLined';
 
 function PostFooter({ answers, user }) {
   switch (user) {
@@ -12,7 +12,7 @@ function PostFooter({ answers, user }) {
         <OxoWrapper>
           <div className='wrapper'>
             <span className='oxIcons'>
-              <OXIcon color="#616161" />
+              <OXIcon color='#616161' />
             </span>
             <div className='answers'>
               <span className='answersText'>{answers}</span>
@@ -68,8 +68,8 @@ const OxoWrapper = styled.div`
     }
   }
 
-  .answers{
-    display:flex;
+  .answers {
+    display: flex;
     justify-content: center;
     align-items: center;
   }
