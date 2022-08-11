@@ -40,7 +40,7 @@ What? <br>
 
 | TEAM                                | Position | Blog                                                      | Github                                                     |
 | ----------------------------------- | -------- | --------------------------------------------------------- | ---------------------------------------------------------- |
-| :smiling_face_with_3_hearts: 이소윤 | FrontEnd | <a href="https://programmerplum.tistory.com/">tistory</a> | <a href="https://github.com/99dlthdbs">@99dlthdbs</a>      |
+| :wink: 이소윤 | FrontEnd | <a href="https://programmerplum.tistory.com/">tistory</a> | <a href="https://github.com/99dlthdbs">@99dlthdbs</a>      |
 | :sunglasses: 이기문                 | FrontEnd | <a href="https://velog.io/@kimoon212">velog</a>           | <a href="@kimoon1 ">@kimoon1</a>                           |
 | :laughing: 정영훈                   | FrontEnd | <a href="https://youngst.tistory.com/7">tistory</a>       | <a href="https://github.com/young-st511">@young-st5111</a> |
 
