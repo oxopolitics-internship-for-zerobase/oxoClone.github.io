@@ -10,11 +10,11 @@
 
 ### Description of Project
 
-Why? <br>
-3명의 팀원들 모두 React를 처음 접하거나 접한지 얼마 되지 않았기 때문에, React와 좀 더 친해지기 위한 프로젝트이다.
+<b>Why?</b> <br/>
+3명의 팀원들 모두 React를 처음 접하거나 접한지 얼마 되지 않았기 때문에, <br/> React와 좀 더 친해지기 위한 프로젝트이다.
 
-What? <br>
-<a href="https://www.oxopolitics.com/">옥소폴리틱스</a>의 Home Page를 보고 클론 코딩을 진행하였다. 이 때, JSON 파일로 Page에 대한 정보를 가공하여 화면에 나타나도록 하였다.
+<b>What?</b> <br/>
+<a href="https://www.oxopolitics.com/">옥소폴리틱스</a>의 Home Page를 보고 클론 코딩을 진행하였다. <br/> 이 때, JSON 파일로 Page에 대한 정보를 가공하여 화면에 나타나도록 하였다.
 
 </div>
 
